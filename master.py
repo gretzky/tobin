@@ -3,7 +3,7 @@ import serial
 import time
 import sys
 
-from tobin.hub import TobinHub
+from tobin.hub import Tobin
 from tobin.exceptions import DeviceNotFound, InvalidOperation
 
 PORT = '/dev/ttyUSB0'
@@ -13,7 +13,7 @@ def main():
     global input
 
     rtu_connection = serial.Serial(port=PORT, baudrate=BAUDRATE, bytesize=8, parity='N', stopbits=1, xonxoff=0)
-    tobin = TobinHub(rtu_connection)
+    tobin = Tobin(rtu_connection)
     print('Tobin connected')
     try: input = raw_input
     except NameError: pass
